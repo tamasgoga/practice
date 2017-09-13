@@ -13,3 +13,4 @@ Here's a useful article on [how to kickstart](https://angular.io/docs/ts/latest/
 
 - [Overview of Angular's architecture](https://angular.io/docs/ts/latest/guide/architecture.html)
 - [A talk given by one of the authors of the tutorial (afaik)](https://www.youtube.com/watch?v=zoCLEwFUpqg)
+

@@ -24,9 +24,6 @@ Over-engineered enough to make the itch go away. On the educational side it focu
 > #### INFO
 > `./roll` -- Outputs usage and program information.
 
-## License
-Distributed under the MIT License.
-
 ## TODO
 - Better unit tests;
 - New die type w/ Die as a base class;
