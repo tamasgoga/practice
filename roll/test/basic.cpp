@@ -1,6 +1,8 @@
-#include "basic.hpp"
+#include "../src/Roll.hpp"
 #include "../src/io.hpp"
 
+#include <string>
+#include <vector>
 #include <iostream>
 #include <cassert>
 #include <exception>
@@ -8,7 +10,10 @@
 using namespace std;
 
 
-void testDieRoll(Die::value_type type, int numOfRolls) {
+void testDieRoll() {
+	constexpr Die::value_type type = 100;
+	constexpr int numOfRolls = 10000;
+
 	int faultyRollCount = 0;
 
 	Die d(type);
@@ -28,7 +33,10 @@ void testDieRoll(Die::value_type type, int numOfRolls) {
 }
 
 
-void testCopyAssignDie(Die::value_type type, Die::value_type val) {
+void testCopyAssignDie() {
+	constexpr Die::value_type type = 1;
+	constexpr Die::value_type val = 1;
+
 	cout << "Copy: ";
 	Die d1(type, val);
 	Die d2 = d1;
@@ -46,25 +54,17 @@ void testCopyAssignDie(Die::value_type type, Die::value_type val) {
 }
 
 
-void testRollObj(const std::vector<std::string>& command, unsigned int numOfRolls) {
+void testRollObj() {
+	// setup
+	const std::vector<std::string> command = {"3d20", "6d6,  2d12 6d4  d6 "};
+
+	// test
 	Roll roll(command);
-
-	if (numOfRolls == 0) {
-		cout << "0 rolls requested" << endl;
-		return;
-	}
-
-	if (roll.dice.size() == 0) {
-		cout << "empty roll" << endl;
-		return;
-	}
-
 	printRoll(roll, "roll #1");
-	for (unsigned int i = 1; i < numOfRolls; ++i) {
-		roll.roll();
-		putchar('\n');
-		printRoll(roll, string("roll #") + to_string(i + 1));
-	}
+
+	roll.roll();
+	putchar('\n');
+	printRoll(roll, "roll #2");
 }
 
 

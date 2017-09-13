@@ -13,13 +13,13 @@ static inline void printTestSeparator(const string& title = "", bool isfirstTest
 
 void runAllTests() {
 	printTestSeparator("ROLL 1 <Die>", true);
-	testDieRoll(100, 5000);
+	testDieRoll();
 
 	printTestSeparator("COPY & ASIGN <Die>");
-	testCopyAssignDie(1, 1);
+	testCopyAssignDie();
 
 	printTestSeparator("ROLL 1 <Roll> FEW TIMES");
-	testRollObj({"3d20", "6d6,  2d12 6d4  d6 "}, 2);
+	testRollObj();
 
 	printTestSeparator("TEST ERRORS");
 	testRollObjCtorError();

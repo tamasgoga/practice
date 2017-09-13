@@ -2,21 +2,14 @@
 #define GG_ROLL_TEST_BASIC_HPP
 
 
-#include "test.hpp"
-#include "../src/Roll.hpp"
-
-#include <string>
-#include <vector>
-
-
 /* Generate a number of dice rolls from one Die */
-void testDieRoll(Die::value_type type, int numOfRolls);
+void testDieRoll();
 
 /* Test copy and assignment operations on dice */
-void testCopyAssignDie(Die::value_type type, Die::value_type val);
+void testCopyAssignDie();
 
-/* Generate a Roll (object) and re-roll it (numOfRolls - 1) times */
-void testRollObj(const std::vector<std::string>& command, unsigned int numOfRolls = 1);
+/* Generate a Roll (object) and re-roll it once */
+void testRollObj();
 
 /* Try to generate a faulty roll object */
 void testRollObjCtorError();
