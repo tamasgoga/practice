@@ -1,5 +1,5 @@
 A config file parser that stores identifier-value pairs in a table.
-Keys must start with an alphabetic or and underscore char. They may also contain numbers.
+Keys must start with an alphabetic or an underscore char. They may also contain numbers.
 
 Supported types:
 - `string`, 
