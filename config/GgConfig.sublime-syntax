@@ -1,0 +1,58 @@
+%YAML 1.2
+---
+# See http://www.sublimetext.com/docs/3/syntax.html
+name: GgConfig
+file_extensions: [ggconfig]
+scope: source.ggconfig
+
+contexts:
+  # The prototype context is prepended to all contexts but those setting
+  # meta_include_prototype: false.
+  prototype:
+    - include: comments
+
+  main:
+    # The main context is the initial starting point of our syntax.
+    # Include other contexts from here (or specify them directly).
+    - include: keywords
+    - include: numbers
+    - include: strings
+
+  keywords:
+    # Keywords are if, else for and while.
+    # Note that blackslashes don't need to be escaped within single quoted
+    # strings in YAML. When using single quoted strings, only single quotes
+    # need to be escaped: this is done by using two single quotes next to each
+    # other.
+    - match: '\b(true|false)\b'
+      scope: keyword.control.ggconfig
+
+  numbers:
+    - match: '\b[-+]?[0-9]*\.?[0-9]+([eE][-+]?[0-9]+)?'
+      scope: constant.numeric.ggconfig
+
+  strings:
+    # Strings begin and end with quotes, and use backslashes as an escape
+    # character.
+    - match: '"'
+      scope: punctuation.definition.string.begin.ggconfig
+      push: inside_string
+
+  inside_string:
+    - meta_include_prototype: false
+    - meta_scope: string.quoted.double.ggconfig
+    - match: '\["nt\\]'
+      scope: constant.character.escape.ggconfig
+    - match: '[^\\]"'
+      scope: punctuation.definition.string.end.ggconfig
+      pop: true
+
+  comments:
+    # Comments begin with a '//' and finish at the end of the line.
+    - match: '#'
+      scope: punctuation.definition.comment.ggconfig
+      push:
+        # This is an anonymous context push for brevity.
+        - meta_scope: comment.line.pound-sign.ggconfig
+        - match: $\n?
+          pop: true

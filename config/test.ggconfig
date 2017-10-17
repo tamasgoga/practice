@@ -1,0 +1,40 @@
+true # find out what happens with this
+
+# SO! Welcome to my (Goga Tamas) ASCII config-file reader! This, right here, is a comment.
+# Try running this file through the parser to see it's capabilities!
+
+# This is your general formula:
+# <id1> = <id2> = ... = <value>
+# LET'S BREAT IT DOWN!
+
+# Identifiers must start with with either an alphabetic or an '_' (underscore). They can contain number too!
+id = "like so"
+_id = true
+id1 = 3.14159265358979323846264338327950288
+
+# Redefinition works:
+_id = false
+
+# Supported escape sequences (within strings):
+#   - \n -- newline;
+#   - \t -- tab;
+#   - \" -- quote;
+#   - \\ -- backslash.
+# Escape sequences are not supported outside of strings!
+# "\" not followed by the characters specified above are treated as backslash.
+# Multiline strings are OK too. "=" & "#" are permitted in strings as well.
+# Single quotes "'" carry no special meaning.
+string_esc_seq = "\nSupported escape sequences (within strings):\n\t- \\n -- newline;\n\t- \\t -- tab;\n\t- \\\" -- quote;\n\t- \\\\ -- backslash.
+Multiline strings are OK, just be aware of it's side effects!"
+
+# Syntax can be as disgusting as you want:
+	bleah1   	=
+		 bleah2
+	=   bleah3=
+	      "horrible syntax"
+
+# Even unreadable:
+falseNot = tru1e = true fassle = false_= trueNot = false
+
+# Multiline comments are not supported.
+# You'll have to be "clever".
