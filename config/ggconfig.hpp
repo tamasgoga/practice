@@ -12,13 +12,13 @@ namespace gg {
 
 	Supported types:
 		- string, 
-		- number (double, but no scientific),
+		- number (double),
 		- boolean.
 
 	Strings:
 		- must be enclosed in double quotes, like so: "my string value";
-		- support the following escape sequences: \\, \", \n, \t.
-		  If any other character follows '\' it gets treated as a backslash character.
+		- support the following escape sequences: \\, \", \n, \t;
+		- if any other character follows '\' it gets treated as a backslash character.
 
 	Note! Escape sequences are not supported outside of strings.
 

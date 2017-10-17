@@ -1,4 +1,5 @@
-true # find out what happens with this
+true # this is parsed, but not saved
+123  # this too
 
 # SO! Welcome to my (Goga Tamas) ASCII config-file reader! This, right here, is a comment.
 # Try running this file through the parser to see it's capabilities!
