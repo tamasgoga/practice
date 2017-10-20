@@ -83,6 +83,8 @@ namespace {
 
 namespace gg {
 
+	ConfigStorage::value_t ConfigStorage::null = ConfigStorage::value_t(string("null"));
+
 	ConfigStorage::ConfigStorage()
 		: storage()
 	{;}
@@ -102,6 +104,26 @@ namespace gg {
 			fprintf(stderr, "Unexpected ERROR: %s\n", e.what());
 			return false;
 		}
+	}
+
+
+	ConfigStorage::value_t& ConfigStorage::operator[](const string& key) {
+		auto elem = storage.find(key);
+
+		if (elem != storage.end())
+			return elem->second;
+
+		return null;
+	}
+
+
+	const ConfigStorage::value_t& ConfigStorage::operator[](const string& key) const {
+		const auto elem = storage.find(key);
+
+		if (elem != storage.cend())
+			return elem->second;
+
+		return null;
 	}
 
 } // namespace gg

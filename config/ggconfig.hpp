@@ -45,12 +45,19 @@ namespace gg {
 		using value_t = boost::variant<std::string, double, bool>;
 		using storage_t = std::unordered_map<std::string, value_t>;
 
+		/* Null element (returned by operator[] if it doesn't exist) */
+		static value_t null;
+
 		/* Key-value storage */
 		storage_t storage;
 
 		/* C-tors & d-tor */
 		ConfigStorage();
 		virtual ~ConfigStorage();
+
+		/** Access operator */
+		value_t& operator[](const std::string& key);
+		const value_t& operator[](const std::string& key) const;
 
 		/* Parse a config file (relative path) */
 		bool parseFile(const char* path);

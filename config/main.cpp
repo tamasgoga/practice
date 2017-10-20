@@ -32,6 +32,10 @@ void run() {
 			}
 		}
 	}
+
+	p["id"] = string("changed");
+	cout << "\nid:        " << p["id"]
+	     << "\nnot_exist: " << p["not_exist"] << endl;
 }
 
 
