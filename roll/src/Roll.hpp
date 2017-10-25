@@ -38,6 +38,9 @@ public:
 		for (auto& d: dice)
 			d.roll();
 	}
+
+	/* Output a Roll into a stream */
+	friend std::ostream& operator<<(std::ostream& out, const Roll& d);
 };
 
 

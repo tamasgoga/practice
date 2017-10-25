@@ -1,5 +1,4 @@
 #include "../src/Roll.hpp"
-#include "../src/io.hpp"
 
 #include <string>
 #include <vector>
@@ -60,11 +59,10 @@ void testRollObj() {
 
 	// test
 	Roll roll(command);
-	printRoll(roll, "roll #1");
+	cout << roll << endl;
 
 	roll.roll();
-	putchar('\n');
-	printRoll(roll, "roll #2");
+	cout << '\n' << roll << endl;
 }
 
 

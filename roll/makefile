@@ -1,7 +1,7 @@
 # by Goga Tamas
 
 # compiler
-CXX = clang++-3.8 -std=c++1y
+CXX = clang++-4.0 -std=c++14
 CXXFLAGS = -Wall -Wextra -Werror
 
 # source files

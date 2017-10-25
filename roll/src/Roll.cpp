@@ -100,3 +100,48 @@ Roll::Roll(const vector<string>& commands)
 Roll::Roll(const Roll& other)
 	: dice(other.dice)
 {}
+
+
+/* Print the average and total, used by printRoll() */
+static inline void printInfo(ostream& out, Die::value_type total, Die::value_type count) {
+	double avg = count > 0 ? static_cast<double>(total) / count : 0.0;
+	out << "\n    (total: " << total << ", average: " << avg << ')';
+}
+
+
+ostream& operator<<(ostream& out, const Roll& r) {
+	if (r.dice.size() == 0) {
+		out << "Roll: empty...";
+		return out;
+	}
+
+	static constexpr auto ZERO = static_cast<Die::value_type>(0);
+	auto dieType = r.dice[0].type;
+	auto total = ZERO;
+	auto count = ZERO;
+
+	out << "d" << dieType << " -> ";
+
+	for (const auto& d: r.dice) {
+		if (d.type != dieType) {
+			dieType = d.type;
+			printInfo(out, total, count);
+			out << "\nd" << dieType << " -> ";
+			total = count = ZERO;
+		}
+
+		++count;
+		total += d.get();
+
+		out << d.get() << ' ';
+	}
+
+	if (count > ZERO)
+		printInfo(out, total, count);
+
+#ifdef ROLL_TESTING
+	out << "\n\nDice count: " << r.dice.size() << "\nDice storage size: " << r.dice.capacity();
+#endif // ROLL_TESTING
+
+	return out;
+}

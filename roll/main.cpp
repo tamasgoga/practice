@@ -1,7 +1,6 @@
 /* Dice roll simulator by Goga Tamas, 2017 */
 
 #include "src/Roll.hpp"
-#include "src/io.hpp"
 
 #ifdef ROLL_TESTING
 #include "test/test.hpp"
@@ -45,7 +44,7 @@ int main(int argc, char** argv) {
 #endif // ROLL_TESTING
 
 		Roll r(cmd);
-		printRoll(r, "Roll");
+		cout << r << endl;
 	} catch (const invalid_argument& e) {
 		cerr << "BAD ARGUMENT: " << e.what() << endl;
 	} catch (const out_of_range& e) {
