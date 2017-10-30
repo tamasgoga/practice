@@ -97,11 +97,6 @@ Roll::Roll(const vector<string>& commands)
 }
 
 
-Roll::Roll(const Roll& other)
-	: dice(other.dice)
-{}
-
-
 /* Print the average and total, used by printRoll() */
 static inline void printInfo(ostream& out, Die::value_type total, Die::value_type count) {
 	double avg = count > 0 ? static_cast<double>(total) / count : 0.0;

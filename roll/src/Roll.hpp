@@ -22,13 +22,17 @@ public:
 	/* Contains the dices */
 	std::vector<Die> dice;
 
-	/* C-tors:
-	   1: From a command string, e.g. cmd = {"3d6", "3d6 2d12"}
-	      Note that "3d6" will create 3 x Die objects
-	   2: Copy c-tor
+	/* C-tor:
+	     From a command string, e.g. cmd = {"3d6", "3d6 2d12"}
+	     Note that "3d6" will create 3 x Die objects
 	**/
 	Roll(const std::vector<std::string>& commands);
-	Roll(const Roll& other);
+
+	/* Default copy & move */
+	Roll(const Roll& other) = default;
+	Roll& operator=(const Roll&) = default;	
+	Roll(Roll&& other) = default;
+	Roll& operator=(Roll&&) = default;
 
 	/* D-tor */
 	virtual ~Roll() {}
