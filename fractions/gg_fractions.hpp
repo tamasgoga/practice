@@ -36,7 +36,7 @@ namespace gg {
 	template <typename Arithmetic>
 	Arithmetic gcd(Arithmetic a, Arithmetic b) noexcept {
 		static_assert(std::is_arithmetic<Arithmetic>::value, "gg::gcd() can only be used on arithmetic types.");
-		constexpr auto ZERO = static_cast<Arithmetic>(0);
+		static constexpr auto ZERO = static_cast<Arithmetic>(0);
 
 		a = std::abs(a);
 		b = std::abs(b);
@@ -63,7 +63,7 @@ namespace gg {
 	template <typename FloatingPoint>
 	FloatingPoint gcd_fp(FloatingPoint a, FloatingPoint b) noexcept {
 		static_assert(std::is_floating_point<FloatingPoint>::value, "gg::gcd_fp() can only be used on floating point types.");
-		constexpr auto ZERO = static_cast<FloatingPoint>(0);
+		static constexpr auto ZERO = static_cast<FloatingPoint>(0);
 
 		FloatingPoint iprt;
 		if(std::modf(a, &iprt) != ZERO || std::modf(b, &iprt) != ZERO)
