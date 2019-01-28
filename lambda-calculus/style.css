@@ -1,0 +1,54 @@
+/* http://colorpalettes.net/color-palette-3728/ */
+
+html, body {
+    margin: 0;
+    padding: 0;
+    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+    font-size: 1em;
+    background-color: #034488;
+}
+
+#term {
+    margin: 0 auto;
+    width: 50%;
+}
+
+.bottom {
+    margin: 2em auto;
+    text-align: center;
+}
+
+#term, .bottom,
+#term a:link, .bottom a:link,
+#term a:active, .bottom a:active,
+#term a:visited, .bottom a:visited {
+    color: #fffcf6;
+}
+
+#term a:hover, .bottom a:hover {
+    color: #ccdde8;
+}
+
+.expression {
+    margin-top: 2em;
+    padding: 1em;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+    color: black;
+    background-color: #edece8;
+}
+
+.expression code {
+    font-family: 'Courier New', Courier, monospace;
+    margin-left: 1em;
+    color: red;
+}
+
+.expression code.result {
+    color: green;
+}
+
+.expression code.result .rest {
+    color: blue;
+    margin-left: 1em;
+}
